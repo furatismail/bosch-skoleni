@@ -1,19 +1,4 @@
-<nav class="center">
-  <a class="button" routerLink="/dashboard"> Dashboard </a>
-  <a class="button" routerLink="/about"> About </a>
-  <a class="button" routerLink="/settings"> Settings </a>
-  <a class="button" routerLink="/photos"> Photos </a>
-</nav>
 
 <div class="apple-card">
-  <app-child id="appChild"></app-child>
-  <button (click)="clickMe()">Click me</button>
-
-  <h2 appWindow #portal="portal">Welcome to {{ title }}</h2>
-
-  <button (click)="changeTitle()">Change title</button>
-  <button (click)="portal.open()">Open</button>
-  <button (click)="portal.close()">Close</button>
-
-  <router-outlet />
+  <app-example1 />
 </div>

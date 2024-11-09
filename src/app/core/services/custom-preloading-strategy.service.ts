@@ -10,8 +10,7 @@ import { delay, switchMap } from "rxjs/operators";
 export class CustomPreloadingStrategy implements PreloadingStrategy {
   preload(route: Route, load: () => Observable<Type<any>>): Observable<null | Type<any>> {
     const preloadDelay = route.data?.['preloadDelay'] ?? 0;
-    console.log(route, 'route')
-    console.log(preloadDelay, 'preloadDelay')
+
     return route.data?.['preload'] === true ? of(null).pipe(
       delay(preloadDelay),
       switchMap(load)
