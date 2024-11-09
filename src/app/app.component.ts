@@ -12,5 +12,12 @@ import { IsEvenComponent } from './signals/is-even/is-even.component';
 export class AppComponent {
 
 
+  counterValue = 5;
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.counterValue = 10
+    }, 3000);
+  }
 
 }
