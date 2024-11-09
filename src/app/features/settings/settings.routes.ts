@@ -7,11 +7,13 @@ export const SettingsRoutes: Routes = [
         children: [
             {
                 path: 'panel',
-                loadComponent: () => import('./panel/panel.component').then(m => m.PanelComponent)
+                loadComponent: () => import('./panel/panel.component').then(m => m.PanelComponent),
+                data: { preload: true }
             },
             {
                 path: 'statistics',
-                loadComponent: () => import('./statistics/statistics.component').then(m => m.StatisticsComponent)
+                loadComponent: () => import('./statistics/statistics.component').then(m => m.StatisticsComponent),
+                data: { preload: true, preloadDelay: 3000 }
             }
         ]
     }
