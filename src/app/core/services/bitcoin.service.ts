@@ -9,11 +9,11 @@ export class BitcoinPriceService {
     private currentPrice = 800000; // Starting price in CZK for Bitcoin
 
     constructor() { 
-        console.log('BitcoinPriceService => init')
+        // console.log('BitcoinPriceService => init')
     }
 
     getBitcoinPrice(): Observable<number> {
-        console.log('BitcoinPriceService => getBitcoinPrice')
+        // console.log('BitcoinPriceService => getBitcoinPrice')
         return interval(2000).pipe(
             map(() => {
                 // Randomly adjust the price up or down by a small amount
