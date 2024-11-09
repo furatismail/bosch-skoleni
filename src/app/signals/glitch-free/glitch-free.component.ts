@@ -1,13 +1,13 @@
 import { Component, effect, signal } from '@angular/core';
 
 @Component({
-  selector: 'app-bloated',
+  selector: 'app-glitch-free',
   standalone: true,
   imports: [],
-  templateUrl: './bloated.component.html',
-  styleUrl: './bloated.component.css'
+  templateUrl: './glitch-free.component.html',
+  styleUrl: './glitch-free.component.css'
 })
-export class BloatedComponent {
+export class GlitchFreeComponent {
   title = 'signals-17';
 
   value = signal(5);
