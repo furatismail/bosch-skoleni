@@ -2,13 +2,13 @@ import { NgFor } from '@angular/common';
 import { Component, computed, effect, signal } from '@angular/core';
 
 @Component({
-  selector: 'app-example1',
+  selector: 'app-signal-search',
   standalone: true,
   imports: [NgFor],
-  templateUrl: './example1.component.html',
-  styleUrls: ['./example1.component.css'] // Corrected the property name from styleUrl to styleUrls
+  templateUrl: './signal-search.component.html',
+  styleUrls: ['./signal-search.component.css'] // Corrected the property name from styleUrl to styleUrls
 })
-export class Example1Component {
+export class SignalSearchComponent {
   search = signal(localStorage.getItem('searchString') || '');
   users = signal([
     { id: 1, name: "Carl" },
