@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Example1Component } from './example1/example1.component';
+import { Example1Component } from './signals/example1/signal-search.component';
 
 @Component({
   selector: 'app-root',
