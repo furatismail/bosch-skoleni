@@ -8,7 +8,7 @@ import { Component, computed, signal } from '@angular/core';
   templateUrl: './signal-search.component.html',
   styleUrls: ['./signal-search.component.css'] // Corrected the property name from styleUrl to styleUrls
 })
-export class Example1Component {
+export class SignalSearchComponent {
   // search = signal(localStorage.getItem('searchString') || '');
   // users = signal([
   //   { id: 1, name: "Carl" },
