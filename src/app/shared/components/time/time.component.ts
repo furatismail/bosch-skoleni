@@ -1,18 +1,23 @@
-import { Component, Inject, OnDestroy, OnInit, Optional } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Inject, InjectionToken, OnDestroy, OnInit, Optional } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
-import { TIME_START_DATE } from './time.module';
+
+export const TIME_START_DATE = new InjectionToken<string>('TIME_START_DATE');
 
 @Component({
+  imports: [CommonModule],
   selector: 'app-time',
   templateUrl: './time.component.html',
-  styleUrls: ['./time.component.css']
+  styleUrls: ['./time.component.css'],
+  standalone: true,
 })
 export class TimeComponent implements OnInit, OnDestroy {
   count!: Date;
   private subscription: Subscription = new Subscription();
 
   constructor(@Optional() @Inject(TIME_START_DATE) private startDate: string) { 
-    this.count = new Date(this.startDate); // Initialize count with the start date
+    const start = (this.startDate) ? this.startDate : new Date().toISOString();
+    this.count = new Date(start); // Initialize count with the start date
   }
 
   ngOnInit(): void {

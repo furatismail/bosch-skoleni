@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { TimeModule } from '../../../shared/components/time/time.module';
+import { TimeComponent } from '../../../shared/components/time/time.component';
 
 @Component({
   selector: 'app-statistics',
   standalone: true,
-  imports: [TimeModule],
+  imports: [TimeComponent],
   templateUrl: './statistics.component.html',
   styleUrl: './statistics.component.css'
 })

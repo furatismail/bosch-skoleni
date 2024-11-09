@@ -1,6 +1,5 @@
 import { NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { Component } from '@angular/core';
-import { TimeModule } from '../../../shared/components/time/time.module';
 
 @Component({
   selector: 'app-main',
