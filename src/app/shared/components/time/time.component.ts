@@ -1,4 +1,4 @@
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, Optional } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 import { TIME_START_DATE } from './time.module';
 
@@ -11,7 +11,7 @@ export class TimeComponent implements OnInit, OnDestroy {
   count!: Date;
   private subscription: Subscription = new Subscription();
 
-  constructor(@Inject(TIME_START_DATE) private startDate: string) { 
+  constructor(@Optional() @Inject(TIME_START_DATE) private startDate: string) { 
     this.count = new Date(this.startDate); // Initialize count with the start date
   }
 

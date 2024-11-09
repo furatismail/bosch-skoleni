@@ -12,7 +12,7 @@ export const TIME_START_DATE = new InjectionToken<string>('TIME_START_DATE');
   exports: [TimeComponent]
 })
 export class TimeModule {
-  static register(startDate: string): ModuleWithProviders<TimeModule> {
+  static register(startDate: string = new Date().toISOString()): ModuleWithProviders<TimeModule> {
     return {
       ngModule: TimeModule,
       providers: [
