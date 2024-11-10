@@ -1,7 +1,8 @@
 import { Component, effect, inject, input, signal } from '@angular/core';
 import { UserService } from '../../core/services/user.service';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, switchMap } from 'rxjs';
 import { JsonPipe } from '@angular/common';
+import { toObservable } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-user',
@@ -15,22 +16,20 @@ export class UserComponent {
   userId = input.required<string>()
   user = signal({});
 
+
+
   constructor() {
-    effect(async () => {
-      // console.log(this.user(), 'user')
+    toObservable(this.userId).pipe(switchMap((res) => {
+      return this.userService.getUser(this.userId());
+    })).subscribe((res) => {
+      this.user.set(res)
+    })
 
-      const response = await lastValueFrom(this.userService.getUser(this.userId()));
 
-      this.user.set(response as any); 
-    }, {
-      allowSignalWrites: true
-    });
 
-    
 
-   
   }
 
-  
+
 
 }
