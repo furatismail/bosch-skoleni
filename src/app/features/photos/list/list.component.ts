@@ -1,8 +1,9 @@
+import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartSharingService } from '../../../core/services/cart-sharing.service';
 import { Photo } from '../../../shared/interfaces/photo.interface';
 import { ItemComponent } from './components/item/item.component';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-list',
@@ -12,10 +13,10 @@ import { NgClass } from '@angular/common';
   styleUrl: './list.component.css'
 })
 export class ListComponent implements OnInit {
-  private route = inject(ActivatedRoute);
   photos!: Photo[];
   cart = []
-
+  private route = inject(ActivatedRoute);
+  private cartSharingService = inject(CartSharingService)
 
   ngOnInit(): void {
     this.route.data.subscribe((data) => {
@@ -28,5 +29,7 @@ export class ListComponent implements OnInit {
     } else {
       this.cart = [...this.cart, photoId];
     }
+
+    this.cartSharingService.changeState(this.cart)
   }
 }
