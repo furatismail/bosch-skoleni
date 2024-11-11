@@ -5,12 +5,12 @@ import { SignalSearchComponent } from './signals/signal-search/signal-search.com
 import { JsonPipe } from '@angular/common';
 import { UserComponent } from "./signals/user/user.component";
 import { TodoComponent } from "./signals/todo/todo.component";
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [SignalSearchComponent, IsEvenComponent, GlitchFreeComponent, JsonPipe, UserComponent, TodoComponent, RouterOutlet],
+  imports: [RouterLink, SignalSearchComponent, IsEvenComponent, GlitchFreeComponent, JsonPipe, UserComponent, TodoComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

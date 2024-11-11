@@ -4,16 +4,19 @@ import { lastValueFrom, Subscription } from 'rxjs';
 import { BitcoinPriceService } from '../../../core/services/bitcoin.service';
 import { UserService } from '../../../core/services/user.service';
 import { User } from '../../../shared/interfaces/user.interface';
+import { TodosStore } from '../../../signals/todo/todo.store';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [JsonPipe, AsyncPipe],
+  imports: [JsonPipe, AsyncPipe, JsonPipe],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
 export class MainComponent implements OnInit {
-
+  store = inject(TodosStore)
+  allTodos = this.store.allTodos;
+  activeCount = this.store.activeCount;
   //////////////////////////////////// 1 ////////////////////////////////////
   // users$: Observable<Array<User> | null> = of(null)
   // private userService = inject(UserService)
