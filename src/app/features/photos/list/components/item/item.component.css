@@ -1,0 +1,20 @@
+.photo-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .photo-item a {
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .photo-item a:hover {
+    text-decoration: underline;
+  }

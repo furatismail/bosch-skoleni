@@ -1,6 +1,5 @@
-<div style="max-height: 400px;">
-    <div *ngFor="let photo of photos">
-        <pre>{{photo | json}}</pre>
-        <a [routerLink]="[photo?.id, 'detail']">Detail</a>
-    </div>
+<div style="max-height: 400px">
+  @for (photo of photos; track photo.id) {
+    <app-item [photo]="photo" />
+  }
 </div>
