@@ -1,5 +1,6 @@
 <div class="photo-item">
     <pre>{{ photo | json }}</pre>
     <a [routerLink]="[photo?.id, 'detail']">Detail</a>
+    <button (click)="getPhoto(photo?.id)">Select</button>
   </div>
   

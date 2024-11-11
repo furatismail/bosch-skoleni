@@ -1,5 +1,9 @@
 <div style="max-height: 400px">
+  cart: {{cart}}
   @for (photo of photos; track photo.id) {
-    <app-item [photo]="photo" />
+    <app-item
+      [photo]="photo"
+      (selectPhotoId)="onSelectPhotoId($event)"
+    />
   }
 </div>

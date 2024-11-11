@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Photo } from '../../../../../shared/interfaces/photo.interface';
 
@@ -11,5 +11,10 @@ import { Photo } from '../../../../../shared/interfaces/photo.interface';
   styleUrl: './item.component.css'
 })
 export class ItemComponent {
-  @Input() photo: Photo; 
+  @Input({ required: true }) photo: Photo;
+  @Output() selectPhotoId = new EventEmitter<number>()
+
+  getPhoto(photoId: number): void {
+    this.selectPhotoId.emit(photoId)
+  }
 }
