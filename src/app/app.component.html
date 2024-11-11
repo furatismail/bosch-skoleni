@@ -8,6 +8,12 @@
 <div class="apple-card">
   <app-time></app-time>
   <!-- <p appHighlight [highlightColor]="'red'">This text will highlight with yellow (default color).</p> -->
-    <p appHighlight [highlightColor]="'red'">This text will highlight with yellow (default color).</p>
+  <p appHighlight [highlightColor]="'red'">
+    This text will highlight with yellow (default color).
+  </p>
+
+  <p>Task 1: {{ true | workDone }}</p>
+  <p>Task 2: {{ false | workDone }}</p>
+
   <router-outlet />
 </div>
