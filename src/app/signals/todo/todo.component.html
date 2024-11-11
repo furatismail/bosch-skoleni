@@ -1,0 +1,21 @@
+<div class="todo-app">
+  <h2>Todos</h2>
+  <input
+    [(ngModel)]="newTodoTitle"
+    placeholder="Add a new todo"
+    (keyup.enter)="addTodo()"
+  />
+
+  <ul>
+    @for (todo of allTodos(); track todo.id) {
+      <li>
+        {{ todo.title }}
+        <button (click)="removeTodo(todo.id)">x</button>
+      </li>
+    }
+  </ul>
+
+  <div class="footer">
+    <span>{{ activeCount() }} items left</span>
+  </div>
+</div>
