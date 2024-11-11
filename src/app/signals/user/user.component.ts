@@ -1,8 +1,8 @@
-import { Component, effect, inject, input, signal } from '@angular/core';
-import { UserService } from '../../core/services/user.service';
-import { lastValueFrom, switchMap } from 'rxjs';
 import { JsonPipe } from '@angular/common';
-import { toObservable } from '@angular/core/rxjs-interop';
+import { Component, inject, input } from '@angular/core';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { switchMap } from 'rxjs';
+import { UserService } from '../../core/services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -14,16 +14,14 @@ import { toObservable } from '@angular/core/rxjs-interop';
 export class UserComponent {
   private userService = inject(UserService);
   userId = input.required<string>()
-  user = signal({});
+  user = toSignal(toObservable(this.userId).pipe(switchMap((res) => {
+    return this.userService.getUser(this.userId());
+  })))
 
 
 
   constructor() {
-    toObservable(this.userId).pipe(switchMap((res) => {
-      return this.userService.getUser(this.userId());
-    })).subscribe((res) => {
-      this.user.set(res)
-    })
+
 
 
 
